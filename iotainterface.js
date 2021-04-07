@@ -1,46 +1,50 @@
-import Iota from "@iota/core";
-import Converter from "@iota/converter";
-
 const Iota = require('@iota/core');
 const Converter = require('@iota/converter');
 
+// Connect to a node
 const iota = Iota.composeAPI({
-    provider: "https://nodes.devnet.iota.org:443",
+  provider: 'https://nodes.devnet.iota.org:443'
 });
 
-const sendTransaction = function (msg) {
-    // returns a promise of the transaction bundle for a successfully recorded transaction
-    const depth = 3;
-    const minimumWeightMagnitude = 9;
+const depth = 3;
+const minimumWeightMagnitude = 9;
 
+// Define a seed and an address.
+// These do not need to belong to anyone or have IOTA tokens.
+// They must only contain a mamximum of 81 trytes
+// or 90 trytes with a valid checksum
+const address =
+  'HEQLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWOR99D';
+const seed =
+  'PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX';
 
-    const address =
-    'HEQLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWOR99D';
+// Define a message to send.
+// This message must include only ASCII characters.
+const message = JSON.stringify({"message": "Hello world"});
 
-    const seed =
-    'PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX';
+// Convert the message to trytes
+const messageInTrytes = Converter.asciiToTrytes(message);
 
-    const message = JSON.stringify({"message": "Hello world"});
-    const messageInTrytes = Converter.asciiToTrytes(message);
-    
-    const transfers = [
-    {
-        value: 0,
-        address: address,
-        message: messageInTrytes
-    }
-    ];
+// Define a zero-value transaction object
+// that sends the message to the address
+const transfers = [
+  {
+    value: 0,
+    address: address,
+    message: messageInTrytes
+  }
+];
 
-    IOTA.prepareTransfers(seed, transfers)
-    .then(trytes => {
-        return iota.sendTrytes(trytes, depth, minimumWeightMagnitude);
-    })
-    .then(bundle => {
-        console.log(bundle[0].hash)
-    })
-    .catch(err => {
-        console.error(err)
-    });
-};
-
-export { sendTransaction };
+// Create a bundle from the `transfers` array
+// and send the transaction to the node
+iota
+  .prepareTransfers(seed, transfers)
+  .then(trytes => {
+    return iota.sendTrytes(trytes, depth, minimumWeightMagnitude);
+  })
+  .then(bundle => {
+    console.log(bundle[0].hash);
+  })
+  .catch(err => {
+    console.error(err)
+  });
