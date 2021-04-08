@@ -19,3 +19,5 @@ iota.getBundle(tailTransactionHash)
   .catch(err => {
     console.error(err);
   });
+
+// Your address is: WKJDF9LVQCVKEIVHFAOMHISHXJSGXWBJFYEQPOQKSVGZZFLTUUPBACNQZTAKXR9TFVKBGYSNSPHRNKKHA
