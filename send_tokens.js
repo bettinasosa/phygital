@@ -7,7 +7,7 @@ const iota = Iota.composeAPI({
     const depth = 3;
     const minimumWeightMagnitude = 9;
     const seed =
-    'YYGYTA9BBGFUJIJHSOVVFVHQIFTSKUXTLQXQDPWIALADNKZFTIVGUPLNSZGTYW9SETIKIVDFTDAWCBTCX';
+    'QMMKGWEFJLLT9YABVQGUOVNUBI9XOREZUGKXKUQQUSEVKLLKBKBZWDQCNNMNYDXKDDUWLWILVZ9RBFSHXODKXXYKOW';
 
 // Create a wrapping function so you can use async/await
 const main = async () => {
