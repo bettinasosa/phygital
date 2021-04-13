@@ -14,7 +14,7 @@ const securityLevel = 2;
 
 // The seed that will be used to generate an address
 const seed =
-  'PUETPSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX';
+  'OYVCKQZOPEFYDLAKOIGDAKKKGQYGERLVKGNPNMSILSARMQN9QYDENJDBSQDHAYUHFIMEP9ECZEKIJDY9X';
 
 
 // If this address is spent, this method returns the next unspent address with the lowest index

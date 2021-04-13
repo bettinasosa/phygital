@@ -1,23 +1,18 @@
+// Require the client library packages
 const Iota = require('@iota/core');
-const Extract = require('@iota/extract-json');
+const Converter = require('@iota/converter');
 
-// Connect to a node
+// Create a new instance of the IOTA API object
+// Use the `provider` field to specify which node to connect to
 const iota = Iota.composeAPI({
-  provider: 'https://nodes.devnet.iota.org:443'
+provider: 'https://nodes.devnet.iota.org:443'
 });
 
-// Define the tail transaction hash of the bundle whose messages you want to read
-const tailTransactionHash =
-    'ZFICKFQXASUESAWLSFFIWHVOAJCSJHJNXMRC9AJSIOTNGNKEWOFLECHPULLJSNRCNJPYNZEC9VGOSV999';
-
-// Get the transaction objects in the bundle
-iota.getBundle(tailTransactionHash)
-  .then(bundle => {
-    // Extract and parse the JSON messages from the transactions' `signatureMessageFragment` fields
-    console.log(JSON.parse(Extract.extractJson(bundle)));
-  })
-  .catch(err => {
-    console.error(err);
-  });
-
-// Your address is: WKJDF9LVQCVKEIVHFAOMHISHXJSGXWBJFYEQPOQKSVGZZFLTUUPBACNQZTAKXR9TFVKBGYSNSPHRNKKHA
+// Call the `getNodeInfo()` method for information about the IOTA node and the Tangle
+IOTA.getNodeInfo()
+// Convert the returned object to JSON to make the output more readable
+.then(info => console.log(JSON.stringify(info, null, 1)))
+.catch(err => {
+    // Catch any errors
+    console.log(err);
+});

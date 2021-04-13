@@ -4,5 +4,27 @@
     "@iota/core": "^1.0.0-beta.30",
     "@iota/extract-json": "^1.0.0-beta.30",
     "zeromq": "^6.0.0-beta.6"
-  }
+  },
+  "name": "phygital",
+  "description": "Exploring the phygital space within ecommerce",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bettinasosa/phygital.git"
+  },
+  "keywords": [
+    "digital",
+    "identity"
+  ],
+  "author": "bettina sosa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bettinasosa/phygital/issues"
+  },
+  "homepage": "https://github.com/bettinasosa/phygital#readme"
 }
