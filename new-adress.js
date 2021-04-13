@@ -16,12 +16,13 @@ const securityLevel = 2;
 const seed =
   'OYVCKQZOPEFYDLAKOIGDAKKKGQYGERLVKGNPNMSILSARMQN9QYDENJDBSQDHAYUHFIMEP9ECZEKIJDY9X';
 
+  let index = 0;
 
-// If this address is spent, this method returns the next unspent address with the lowest index
-iota.getNewAddress(seed, { index: 0, securityLevel: securityLevel, total: 1 })
+
+  iota.getNewAddress(seed, { index: index, securityLevel: securityLevel, total: 2 })
   .then(address => {
-    console.log('Your address is: ' + address);
+      console.log('Your address is: ' + address);
   })
   .catch(err => {
-    console.log(err)
+      console.log(err)
   });
