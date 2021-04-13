@@ -1,5 +1,6 @@
 // Require the client library packages
 const Iota = require('@iota/core');
+const Converter = require('@iota/converter');
 
 // Create a new instance of the IOTA API object
 // Use the `provider` field to specify which node to connect to
@@ -27,7 +28,7 @@ const transfers = [
     }
     ];
 
-    Iota.prepareTransfers(seed, transfers)
+    iota.prepareTransfers(seed, transfers)
     .then(trytes => {
         return iota.sendTrytes(trytes, depth, minimumWeightMagnitude);
     })

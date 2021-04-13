@@ -9,7 +9,7 @@ provider: 'https://nodes.devnet.iota.org:443'
 });
 
 // Call the `getNodeInfo()` method for information about the IOTA node and the Tangle
-IOTA.getNodeInfo()
+iota.getNodeInfo()
 // Convert the returned object to JSON to make the output more readable
 .then(info => console.log(JSON.stringify(info, null, 1)))
 .catch(err => {
