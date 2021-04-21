@@ -24,6 +24,11 @@
   "homepage": "https://github.com/bettinasosa/phygital#readme",
   "dependencies": {
     "@iota/converter": "*",
-    "@iota/core": "*"
+    "@iota/core": "*",
+    "@iota/identity-wasm": "^0.2.0"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^8.1.1",
+    "rollup-plugin-copy": "^3.4.0"
   }
 }
