@@ -29,12 +29,12 @@ const main = async () => {
   // that sends 1 Ki to your new address
   const transfers = [
     {
-      value: 1000,
+      value: 500,
       address: receivingAddress
     }
   ];
 
-  console.log('Sending 1 Ki to ' + receivingAddress);
+  console.log('Sending 500 Ki to ' + receivingAddress);
 
   try {
     // Construct the bundle and sign your input transactions

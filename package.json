@@ -3,11 +3,9 @@
   "version": "1.0.0",
   "description": "learning",
   "main": "index.js",
-  "scripts": {
-    "test": "t"
-  },
+  "type": "module",
   "repository": {
-    "type": "git",
+    "type": "module",
     "url": "git+https://github.com/bettinasosa/phygital.git"
   },
   "keywords": [
@@ -25,7 +23,9 @@
   "dependencies": {
     "@iota/converter": "*",
     "@iota/core": "*",
-    "@iota/identity-wasm": "^0.2.0"
+    "@iota/identity-wasm": "^0.2.2",
+    "@reduxjs/toolkit": "^1.5.1",
+    "webpack": "^5.37.1"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^8.1.1",

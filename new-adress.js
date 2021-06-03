@@ -12,7 +12,7 @@ const iota = Iota.composeAPI({
 // Define the security level of the address
 const securityLevel = 2;
 
-// The seed that will be used to generate an address
+// The seed that will be used to generate an address  
 const seed =
   'OYVCKQZOPEFYDLAKOIGDAKKKGQYGERLVKGNPNMSILSARMQN9QYDENJDBSQDHAYUHFIMEP9ECZEKIJDY9X';
 

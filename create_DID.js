@@ -9,6 +9,7 @@ const doc = identity.Document.fromKeyPair(key)
 // Sign the DID Document with the sceret key
 doc.sign(key)
 
+const message = 
 // Publish the DID Document to the IOTA Tangle
 identity.publish(doc.toJSON(), { node: "https://nodes.thetangle.org:443" })
   .then((message) => {
