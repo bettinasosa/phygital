@@ -2,10 +2,11 @@
 // Generate an address
 ////////////////////////////////////////////////
 
-const Iota = require('@iota/core');
+// const Iota = require('@iota/core');
+import {composeAPI} from '@iota/core'
 
 // Connect to a node
-const iota = Iota.composeAPI({
+const iota = composeAPI({
   provider: 'https://nodes.devnet.thetangle.org:443'
 });
 

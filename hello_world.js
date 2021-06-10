@@ -1,11 +1,13 @@
 // Require the client library packages
-const Iota = require('@iota/core');
-const Converter = require('@iota/converter');
+// import {composeAPI, prepareTransfers, sendTrytes} from '@iota/core'
+import iotaa from '@iota/core'
+const {composeAPI, createPrepareTransfers, createSendTrytes} = iotaa;
+import {asciiToTrytes} from '@iota/converter'
 
 // Create a new instance of the IOTA API object
-// Use the `provider` field to specify which node to connect to
-const iota = Iota.composeAPI({
-provider: 'https://nodes.devnet.iota.org:443'
+// Connect to a node
+const iota = composeAPI({
+provider: "https://explorer.iota.org/mainnet/transaction"
 });
 
 const depth = 3;
@@ -17,8 +19,12 @@ const address =
 const seed =
 'OYVCKQZOPEFYDLAKOIGDAKKKGQYGERLVKGNPNMSILSARMQN9QYDENJDBSQDHAYUHFIMEP9ECZEKIJDY9X';
 
-const message = JSON.stringify({"message": "Hello world"});
-const messageInTrytes = Converter.asciiToTrytes(message);
+const message = JSON.stringify({"product_id": "3873473654629374",
+"material":'cotton',
+"size":'S',
+"origin":'Guatemala'
+});
+const messageInTrytes = asciiToTrytes(message);
 
 const transfers = [
     {
@@ -28,9 +34,11 @@ const transfers = [
     }
     ];
 
-    iota.prepareTransfers(seed, transfers)
+    const createTransfers = createPrepareTransfers(iota)
+    createTransfers(seed, transfers)
     .then(trytes => {
-        return iota.sendTrytes(trytes, depth, minimumWeightMagnitude);
+        const sendTrytes = createSendTrytes(iota)
+        return sendTrytes(trytes, depth, minimumWeightMagnitude);
     })
     .then(bundle => {
         console.log(bundle[0].hash)
