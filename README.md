@@ -1,2 +1,3 @@
 # phygital
-Exploring the phygital space within ecommerce
+
+Exploring the phygital space within e-commerce
